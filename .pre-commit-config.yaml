@@ -1,0 +1,54 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-shebang-scripts-are-executable
+      - id: check-toml
+      - id: detect-private-key
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+#  # ----------------------- GOLANG -----------------------
+#  - repo: https://github.com/dnephin/pre-commit-golang
+#    rev: v0.5.1
+#    hooks:
+#      - id: go-fmt
+#      - id: go-vet
+#      - id: go-imports
+#      - id: golangci-lint
+#      - id: go-build
+#      - id: go-mod-tidy
+  # ------------------------- PYTHON ------------------------
+  - repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+      - id: black
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.5.7
+    hooks:
+      - id: ruff
+        args: ["--fix", "--ignore=E402,E501"]
+        exclude: ^migrations/
+  - repo: https://github.com/asottile/reorder_python_imports
+    rev: v3.13.0
+    hooks:
+      - id: reorder-python-imports
+#  # ----------------------- RUST -----------------------
+#  - repo: https://github.com/doublify/pre-commit-rust
+#    rev: v1.0
+#    hooks:
+#      - id: fmt
+#      - id: cargo-check
+#      - id: clippy
+  # ------------------------- C ------------------------
+  - repo: https://github.com/pocc/pre-commit-hooks
+    rev: v1.3.5
+    hooks:
+      - id: uncrustify
