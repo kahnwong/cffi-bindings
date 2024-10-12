@@ -3,3 +3,4 @@ bindings/**/*.c
 bindings/**/*.h
 main
 defaults.cfg
+target
